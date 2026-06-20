@@ -28,7 +28,6 @@ body{
     top:25px;
     font-size:30px;
     letter-spacing:6px;
-    opacity:0.9;
 }
 
 /* SCENE */
@@ -87,7 +86,6 @@ body{
     height:75px;
     background:#000;
     border:3px solid #444;
-    box-shadow:0 0 10px #000;
     animation:tvGlow 2s infinite alternate;
 }
 
@@ -102,11 +100,99 @@ body{
     height:65px;
     background:#6b3f2a;
     border-radius:12px;
-    position:relative;
-    z-index:2;
     animation:sofaBreath 4s infinite ease-in-out;
 }
 
+@keyframes sofaBreath{
+    0%,100%{ transform:scale(1); }
+    50%{ transform:scale(1.01); }
+}
+
+/* FAMILY */
+.family{
+    position:absolute;
+    bottom:70px;
+    width:100%;
+    display:flex;
+    justify-content:space-around;
+}
+
+/* ANIMATION LIFE */
+.person{
+    text-align:center;
+    font-size:18px;
+    animation:idleMove 3s infinite ease-in-out;
+}
+
+.person:nth-child(2){ animation-delay:0.5s; }
+.person:nth-child(3){ animation-delay:1s; }
+.person:nth-child(4){ animation-delay:1.5s; }
+
+@keyframes idleMove{
+    0%,100%{ transform:translateY(0); }
+    50%{ transform:translateY(-4px); }
+}
+
+/* HUSKY */
+.husky{
+    font-size:20px;
+    animation:dogWiggle 2.5s infinite ease-in-out;
+}
+
+@keyframes dogWiggle{
+    0%,100%{ transform:rotate(0deg) translateY(0); }
+    50%{ transform:rotate(2deg) translateY(-3px); }
+}
+
+button{
+    margin-top:20px;
+    padding:10px 18px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    background:#ffffff15;
+    color:white;
+}
+
+button:hover{
+    background:#ffffff25;
+}
+</style>
+</head>
+
+<body>
+
+<div class="title">US</div>
+
+<div class="scene" id="scene">
+
+    <div class="door">
+        <div class="panel left"></div>
+        <div class="panel right"></div>
+    </div>
+
+    <div class="room">
+
+        <div class="tv"></div>
+
+        <div class="family">
+            <div class="person">👨<br>aku</div>
+            <div class="person">👩<br>kamu</div>
+            <div class="person">👧<br>Anak</div>
+            <div class="person husky">🐕‍🦺<br>Husky</div>
+        </div>
+
+        <div class="sofa"></div>
+
+    </div>
+</div>
+
+<button onclick="document.getElementById('scene').classList.toggle('open')">
+    buka pintu
+</button>
+
+</body>
+</html>
 @keyframes sofaBreath{
     0%,100%{ transform:scale(1); }
     50%{ transform:scale(1.01); }
